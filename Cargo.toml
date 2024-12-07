@@ -1,0 +1,17 @@
+[package]
+name = "aocnds"
+version = "25.0.0"
+edition = "2024"
+license = "GPL-3.0-or-later"
+
+[dependencies]
+
+[profile.dev]
+opt-level = 0
+
+[[bin]]
+name = "aocnds"
+path = "src/main.rs"
+test = false
+doctest = false
+bench = false

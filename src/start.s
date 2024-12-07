@@ -92,7 +92,13 @@ setup_coprocessor:
     // Protection region 7: 0x37F8000, 32KiB. 
     ldr r0, =__shram_region_start
     orr r0, r0, #0x1d
-    mcr p15, 0, r0, c6, c7, 0
+    mcr p15, 0, r0, c6, c7, 0 
+
+    // Protection region 2: 0x027FF00, 4KiB.
+    // This is BIOS ram, see NDS BIOS RAM usage in GBATEK. Only realised this when looking through
+    // addresses. 
+    ldr r0, =(0x027FF00 | 0x17)
+    mcr p15, 0, r0, c6, c2, 0
 
     // == Tightly Coupled Memory == //
     // C9, C1 controls the TCM Region. 

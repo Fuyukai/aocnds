@@ -85,11 +85,11 @@ setup_coprocessor:
     ldr r0, =(0xFFFF0000 | 0x1d)
     mcr p15, 0, r0, c6, c6, 0
 
-    // Protection region 7: 0x027FF00, 4KiB.
+    // Protection region 7: 0x027FF000, 4KiB.
     // GBATEK says "shared work", which is more evidence in the pile that it's based off of leaked
     // SDKs. The actual shared WRAM area is at the 0x03... addresses.
     // So... let's set it there.
-    // Protection region 7: 0x37F8000, 32KiB. 
+    // Protection region 7: 0x037F8000, 32KiB. 
     ldr r0, =__shram_region_start
     orr r0, r0, #0x1d
     mcr p15, 0, r0, c6, c7, 0 

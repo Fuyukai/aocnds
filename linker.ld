@@ -8,10 +8,10 @@ ENTRY(_start)
  * The memory layout of the DS is pretty simple; there's three user-usable blocks. 
  */
 MEMORY {
-    itcm (rwx) : ORIGIN = 0x01ff8000, LENGTH = 32K
-    main_ram (rwx) : ORIGIN = 0x02000000, LENGTH = 4M
-    dtcm (rw) : ORIGIN = 0x027e0000, LENGTH = 16K
-    shared_ram (rw) : ORIGIN = 0x037f800, LENGTH = 32K
+    itcm (rwx)      : ORIGIN = 0x01ff8000, LENGTH = 32K
+    main_ram (rwx)  : ORIGIN = 0x02000000, LENGTH = 4M
+    dtcm (rw)       : ORIGIN = 0x027e0000, LENGTH = 16K
+    shared_ram (rw) : ORIGIN = 0x037f8000, LENGTH = 32K
 }
 
 SECTIONS {

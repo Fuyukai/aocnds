@@ -1,0 +1,10 @@
+# Arbitrary, two-letter code. Doesn't affect anything.
+maker_code = "39"
+
+# Arbitrary, four-byte code. This isn't used by anything except for identification.
+# First character can be A/B/C/T/Y (generic NDS game), D (DSi game)
+# Last character can be 'A' (for English), 'J' (for Japanese), or 'P' (Other)
+game_code = "ENAE"
+
+# Up to 12 bytes of ASCII for the game name. Doesn't affect anything.
+game_title = "AdventOfCode"

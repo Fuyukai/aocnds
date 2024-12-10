@@ -28,10 +28,6 @@ SECTIONS {
     .bss : ALIGN(4) { KEEP(*(.bss)); KEEP(*(.bss.*)); } > main_ram
 
     __ram_end = .;
-
-    /* Let's get rid of anything we haven't explicitly specified. This includes some debugging
-       info for now. */
-    /DISCARD/ : { * }
 }
 
 /* Various addressees used in our CRT assembly. */

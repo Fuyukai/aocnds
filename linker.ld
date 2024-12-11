@@ -30,6 +30,12 @@ SECTIONS {
     /* Make sure the start of the heap is properly aligned. */
     . = ALIGN(4);
     __text_end = .;
+
+    /* Don't need unwind tables, this is rust! */
+    /DISCARD/ : {
+        *(.ARM.exidx);
+        *(.ARM.exidx.*);
+    }
 }
 
 /* Various addressees used in our CRT assembly. */

@@ -56,4 +56,4 @@ __stack_start_irq = __dtcm_region_end - 0x100;
 __stack_start_svc = __stack_start_irq - 0x100;
 __stack_start_sys = __stack_start_svc - 0x100;
 
-__memory_end = ORIGIN(main_ram) + LENGTH(main_ram) - 4;
+__memory_end = ORIGIN(main_ram) + LENGTH(main_ram) - LENGTH(dtcm) - 4;

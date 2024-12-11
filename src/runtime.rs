@@ -1,11 +1,16 @@
 //! Runtime components for AOC NDS.
 
+use core::arch::asm;
+
 use talc::{ErrOnOom, Span, Talc, Talck};
 use voladdress::{Safe, VolAddress};
 
 #[panic_handler]
 pub fn _handle_panic(_: &core::panic::PanicInfo) -> ! {
     // TODO: Do something better than this
+    unsafe {
+        asm!("bkpt");
+    }
     loop {}
 }
 

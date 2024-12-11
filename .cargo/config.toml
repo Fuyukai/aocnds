@@ -2,10 +2,10 @@
 target = "armv5te-none-eabi"
 
 [unstable]
-build-std = ["core"]
+build-std = ["core", "alloc"]
 
 [target.armv5te-none-eabi]
 rustflags = [
     "-Clinker=arm-none-eabi-ld",
-    "-Clink-arg=-Tlinker.ld"
+    "-Clink-arg=-Tlinker.ld",
 ]

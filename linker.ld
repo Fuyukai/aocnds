@@ -27,7 +27,9 @@ SECTIONS {
     /* The BSS section doesn't really... exist, but we need to allocate some space for it anyway. */
     .bss : ALIGN(4) { KEEP(*(.bss)); KEEP(*(.bss.*)); } > main_ram
 
-    __ram_end = .;
+    /* Make sure the start of the heap is properly aligned. */
+    . = ALIGN(4);
+    __text_end = .;
 }
 
 /* Various addressees used in our CRT assembly. */
@@ -47,3 +49,5 @@ __shram_region_start = ORIGIN(shared_ram);
 __stack_start_irq = __dtcm_region_end - 0x100;
 __stack_start_svc = __stack_start_irq - 0x100;
 __stack_start_sys = __stack_start_svc - 0x100;
+
+__memory_end = ORIGIN(main_ram) + LENGTH(main_ram) - 4;

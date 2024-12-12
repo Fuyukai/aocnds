@@ -226,6 +226,11 @@ _start:
     mov r0, #0
     bl _ASM_primitive_memset
 
+    // Less of a minefield to just set the IRQ handler in ``_start``
+    ldr r0, =irq_handler
+    ldr r1, =__dtcm_region_end
+    str r0, [r1]
+
     // After all of our setup is done, we can finally switch to main.
     // For future-proofing, we do a branch-with-exchange in case ``main`` ends up as a thumb
     // function.

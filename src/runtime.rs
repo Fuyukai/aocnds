@@ -3,7 +3,8 @@
 use core::arch::asm;
 
 use talc::{ErrOnOom, Span, Talc, Talck};
-use voladdress::{Safe, VolAddress};
+
+use crate::interrupts::REG_IME;
 
 #[panic_handler]
 pub fn _handle_panic(_: &core::panic::PanicInfo) -> ! {
@@ -32,12 +33,6 @@ pub fn __aeabi_unwind_cpp_pr2() -> ! {
 
 #[global_allocator]
 static ALLOCATOR: Talck<spin::Mutex<()>, ErrOnOom> = Talc::new(ErrOnOom).lock();
-
-// Whilst only the lower bit is used, this isn't a boolean because representing non-0 or 1 as
-// a boolean is UB.
-static REG_IME: VolAddress<u32, Safe, Safe> =
-    unsafe { VolAddress::new(0x4000208) };
-
 struct NitroCriticalSection;
 
 unsafe impl critical_section::Impl for NitroCriticalSection {

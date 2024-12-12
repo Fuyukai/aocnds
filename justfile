@@ -5,4 +5,4 @@ build-debug:
     cargo build --profile dev
 
 gdb: build-rom-debug
-    sh -c "RUST_GDB=arm-none-eabi-gdb exec rust-gdb ./target/armv5te-none-eabi/debug/aocnds"
+    RUST_GDB=arm-none-eabi-gdb rust-gdb ./target/armv5te-none-eabi/debug/aocnds

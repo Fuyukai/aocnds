@@ -35,6 +35,13 @@ unsafe extern "C" {
 
 #[unsafe(no_mangle)]
 pub extern "C" fn irq_handler() {
+    let mask = REG_IF.read();
+    if mask & 0b1 == 0 {
+        // don't care
+        return
+    }
+
+    // clear V-blank bit
     REG_IF.write(0b1);
     unsafe {
         _set_irq_flags(0b1);

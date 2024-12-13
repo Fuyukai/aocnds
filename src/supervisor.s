@@ -6,7 +6,5 @@
 
 .global SWI_Halt
 SWI_Halt:
-    push {{r0}}
     swi #0x60000
-    pop {{r0}}
     bx lr

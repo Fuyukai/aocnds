@@ -1,9 +1,10 @@
 Advent of Code 2024
 ===================
 
-This is my attempt at solving Advent of Code 2024 on the Nintendo DS.
+This is my attempt at solving Advent of Code 2024 on the Nintendo DS. This is able to complete
+the first half of the first day's puzzle, and output it to the screen.
 
-Current phase: Make it work, in a less lame way!
+Untested on real hardware, but I see no reason it wouldn't work.
 
 Building
 --------

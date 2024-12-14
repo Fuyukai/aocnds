@@ -10,6 +10,9 @@ talc = { version = "=4.4.2" }
 portable-atomic = { version = "=1.10.0", default-features = false, features = ["critical-section"]}
 critical-section = { version = "=1.2.0", features = ["restore-state-u32"] }
 voladdress = { version = "=1.4.0" }
+embedded-graphics-core = "0.4.0"
+embedded-graphics = "0.8.1"
+tinybmp = "0.6.0"
 
 [profile.dev]
 opt-level = 0
